@@ -1,0 +1,62 @@
+#ifndef QUATERNION
+#define QUATERNION
+
+#include "math.h"
+
+class Quaternion{
+	public:
+		double a, b, c, d; // The real, i, j, and k parts, respectively.
+
+		Quaternion(){
+			a = b = c = d = 0;
+		}
+
+		Quaternion(double r, double i, double j, double k){
+			a = r;
+			b = i;
+			c = j;
+			d = k;
+		}
+
+		Quaternion set(double r, double i, double j, double k){
+			a = r;
+			b = i;
+			c = j;
+			d = k;
+			return *this;
+		}
+
+		double magnitude(){
+			return sqrt(b*b + c*c + d*d);
+		}
+		
+		Quaternion normalize(){
+			double mag = magnitude();
+			b /= mag;
+			c /= mag;
+			d /= mag;
+			return *this;
+		}
+
+		Quarternion rotate(Quaternion point, Quaternion axis){
+			// look further.
+			// (cos(axis.a) + sin(axis.a)(axis.bcd)) * point * -axis
+			// order matters
+
+		}
+
+		Quaternion invert(Quaternion q){
+			return Quaternion(-q.a, -q.b, -q.c, -q.d);
+		}
+	
+		Quaternion mult(Quaternion l, Quaternion r){
+			return Quaternion(
+				l.a*r.a - l.b*r.b - l.c*r.c - l.d*r.d,
+				l.a*r.b + l.b*r.a + l.c*r.d - l.d*r.c,
+				l.a*r.c - l.b*r.d + l.c*r.a + l.d*r.b,
+				l.a*r.d + l.b*r.c - l.c*r.b + l.d*r.a
+			);
+		}
+};
+
+#endif
