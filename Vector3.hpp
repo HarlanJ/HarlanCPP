@@ -67,6 +67,10 @@ class Vector3{
 			return Vector3(y*b.z - z*b.y, z*b.x - x*b.z, x*b.y - y*b.x);
 		}
 
+		static Vector3 cross(Vector3 a, Vector3 b){
+			return Vector3(a.y*b.z - a.z*b.y, a.z*b.x - a.x*b.z, a.x*b.y - a.y*b.x);
+		}
+
 		static Vector3 random(){
 			int precision = 2000000000; //	should be divisable by 2, to remove pos/neg bias
 			int adjust = precision/2;
