@@ -106,6 +106,8 @@ class Vector3{
 		class Vector3 operator-(const double rhs){return Vector3(x-rhs, y-rhs, z-rhs);}
 		class Vector3 operator*(const double rhs){return Vector3(x*rhs, y*rhs, z*rhs);}
 		class Vector3 operator/(const double rhs){return Vector3(x/rhs, y/rhs, z/rhs);}
+
+		bool operator==(Vector3 *rhs){return x==rhs->x && y==rhs->y && z==rhs->z;}
 };
 
 #endif
