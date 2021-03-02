@@ -33,7 +33,7 @@ namespace Harlan{
 	}
 
 	double getRandInRange(Range r){
-		return std::rand() / (RAND_MAX / (r.top-r.bottom));
+		return r.top==r.bottom ? r.top : std::rand() / (RAND_MAX / (r.top-r.bottom));
 	}
 }
 
