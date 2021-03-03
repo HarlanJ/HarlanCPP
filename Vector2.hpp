@@ -22,8 +22,9 @@ class Vector2{
 
     // Radians
     void rotate(double theta){
+      double oldX = x;
       x = x*cos(theta) - y*sin(theta);
-      y = y*cos(theta) + x*sin(theta);
+      y = y*cos(theta) + oldX*sin(theta);
     }
 
     static Vector2 rotate(Vector2 v, double theta){
